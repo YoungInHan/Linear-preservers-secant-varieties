@@ -27,6 +27,6 @@ between monomials in sage and sparse matrices.
 
 This is a trick to allow for computations with larger matrix dimensions by reducing the orthogonal complement computation.
 Consider flattenings $`f_1,\ldots,f_k`$ and $`X`$ the action of $`\mathfrak{gl}_N`$ on $`\mathbb{C}[x_1,\ldots,x_N]^d`$.
-For finding a basis for the orthogonal complement we can restrict the computation to the subspace $`F:=\text{span}\{f_1,\ldots,f_k,Xf_1,\ldots Xf_k \} \subseteq \mathbb{C}[x_1,\ldots,x_N]^d`$.
+For finding a basis for the orthogonal complement we can restrict the computation to the subspace $`F:=\text{span}\{f_1,\ldots,f_k \} \subseteq \mathbb{C}[x_1,\ldots,x_N]^d`$.
 In particular, we can do the orthogonal complement computation in $`F`$ and complete the basis in $`\mathbb{C}[x_1,\ldots,x_N]^d`$ by simply adding
 standard basis vectors in $`\mathbb{C}[x_1,\ldots,x_N]^d\setminus F`$.
