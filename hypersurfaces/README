@@ -1,0 +1,25 @@
+Description of the files:
+
+The files
+
+invariant_aronhold.m2
+invariant_oedingsam.m2
+invariant_strassen.m2
+
+contain hardcoded versions of the three invariants.
+
+The files
+
+verify_sigma3v3P2.m2
+verify_sigma4P2P2P2.m2
+verify_sigma5P1P1P1P1P1.m2
+
+verify that the identity component of the preserver has the expected dimension. These are the only files the user needs to run to verify the claims in the paper.
+
+The files
+
+computation_aronhold.m2
+computation_oedingsam.m2
+computation_strassen.m2
+
+compute each invariant, either via their geometric construction, in the Aronhold case, or by interpolation aided with symmetrization tricks, in the other cases.
