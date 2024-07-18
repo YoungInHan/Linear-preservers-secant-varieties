@@ -9,7 +9,12 @@ V2 = QQ[v2_0..v2_1]
 V3 = QQ[v3_0..v3_1]
 V4 = QQ[v4_0..v4_1]
 V5 = QQ[v5_0..v5_1]
-T = QQ[t_(0,0,0,0,0)..t_(1,1,1,1,1), Degrees =>  toList({1,0,0,0,0,0}..{1,1,1,1,1,1})]
+
+-- weight for the SL2 action:
+wts = toList apply((0,0,0,0,0)..(1,1,1,1,1), iii-> (
+	{1}| apply(toList iii, j-> (-1)^j)))
+
+T = QQ[t_(0,0,0,0,0)..t_(1,1,1,1,1), Degrees =>  wts]
 
 
 TABC = T**V1**V2**V3**V4**V5
@@ -24,7 +29,7 @@ vv5 = sub(vars(V5),TABC)
 
 
 -- the zero weight space for the action of SL x SL x SL x SL x SL
-ttt6wt0 = sub(basis({6,3,3,3,3,3},T),TABC);
+ttt6wt0 = sub(basis({6,0,0,0,0,0},T),TABC);
 
 -- the degree 6 invariant is skew with respect to the action of S5
 -- which permutes the five factors. Skew-symmetrization reduces the 
@@ -36,6 +41,7 @@ U = sum(permutations(5), ppp -> (
 	print ppp;
 	permSgn(ppp) * sub(ttt6wt0, permOpts(ppp))));
 U = mingens ideal U;
+
 
 -- we interpolate on the resulting 25 generators
 evalOpts = Tt -> (
@@ -56,8 +62,8 @@ A = matrix apply(25, j-> (
 -- compute the kernel to obtain the desired invariant
 F = (U * gens ker A)_(0,0);
 
-"oedingsam_invariant.m2" << "OSinv = ";
-"oedingsam_invariant.m2" << toString(F);
-"oedingsam_invariant.m2" << ";" << close
+"invariant_oedingsam.m2" << "OSinv = ";
+"invariant_oedingsam.m2" << toString(F);
+"invariant_oedingsam.m2" << ";" << close
 
 

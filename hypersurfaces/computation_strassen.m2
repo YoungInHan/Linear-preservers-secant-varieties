@@ -14,7 +14,17 @@ A = KK[a_0..a_2]
 B = KK[b_0..b_2]
 C = KK[c_0..c_2]
 
-T = KK[t_(0,0,0)..t_(2,2,2), Degrees =>  toList({1,0,0,0}..{1,2,2,2})]
+
+-- define weight for the action of SL3: 
+wt = k -> ( if k == 0 then return {1,0};
+            if k == 1 then return {0,1};
+            if k == 2 then return {-1,-1})
+
+wts = toList apply((0,0,0)..(2,2,2), iii -> (
+	{1}|(wt(iii_0))|(wt(iii_1))|(wt(iii_2))))
+
+
+T = KK[t_(0,0,0)..t_(2,2,2), Degrees => wts]
 
 TABC = T**A**B**C
 
@@ -25,7 +35,8 @@ bb = sub(vars(B),TABC)
 cc = sub(vars(C),TABC)
 
 -- the zero weight space for the action of SL x SL x SL 
-ttt9wt0 = sub(basis({9,9,9,9},T),TABC);
+ttt9wt0 = sub(basis({9,0,0,0,0,0,0},T),TABC);
+
 
 -- Strassen's invariant is skew with respect to the action of S3
 -- which permutes the three factors. Skew-symmetrization reduces the 
@@ -77,12 +88,9 @@ A = matrix apply((numcols(U3), j-> (
 A = sub(A,KK);
 kA = gens ker A;
 
-kA -- observe that only the top 17 entries of kA are nonzero
-F = (U3_{0..16} * kA^{0..16})_(0,0);
+F = (U3 * kA)_(0,0);
 
-"strassen_invariant.m2" << "Str = ";
-"strassen_invariant.m2" << toString(F);
-"strassen_invariant.m2" << ";" << close
-
-load "strassen_invariant.m2"
+"invariant_strassen.m2" << "Str = ";
+"invariant_strassen.m2" << toString(F);
+"invariant_strassen.m2" << ";" << close
 
