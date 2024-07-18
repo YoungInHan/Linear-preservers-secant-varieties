@@ -22,8 +22,8 @@ semiFlat = diff(kos,diff(xx,diff(transpose xx, fgen)))
 F = 1/1296* (pfaffians(8, semiFlat))_0
 
 
-"aronhold_invariant.m2" << "Aro = ";
-"aronhold_invariant.m2" << toString(F);
-"aronhold_invariant.m2" << ";" << close
+"invariant_aronhold.m2" << "Aro = ";
+"invariant_aronhold.m2" << toString(F);
+"invariant_aronhold.m2" << ";" << close
 
 
