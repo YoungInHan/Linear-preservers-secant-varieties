@@ -1,5 +1,5 @@
 # Linear Preservers of Secant Varieties
-This work is joint with [Benjamin Lovitz](https://www.benjaminlovitz.com/) and [Fulvio Gesmundo](https://fulges.github.io/). See the associated paper (link tbd!).
+This work is joint with [Benjamin Lovitz](https://www.benjaminlovitz.com/) and [Fulvio Gesmundo](https://fulges.github.io/). See the associated paper on [arxiv](https://arxiv.org/abs/2407.16767).
 
 This repository holds an implementation of the lie algebra method of determining the preserver group of a secant variety to a Segre variety. 
 We have computed cases where the lie algebra dimension derived from the minor flattenings matched the expected dimension.
